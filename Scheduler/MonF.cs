@@ -16,7 +16,7 @@ namespace Scheduler
         public Mon()
         {
             InitializeComponent();
-            refresh.PerformClick();
+            refreshMon.PerformClick();
         }
 
         private void saveMon_Click(object sender, EventArgs e)
@@ -75,6 +75,11 @@ namespace Scheduler
                     }
                 }
             }
+        }
+
+        private void MonCal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
