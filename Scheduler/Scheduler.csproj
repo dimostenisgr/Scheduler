@@ -130,6 +130,7 @@
     <EmbeddedResource Include="Wed.resx">
       <DependentUpon>Wed.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="mygrid.bin" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
