@@ -165,5 +165,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-edit-32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-32-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utillities\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

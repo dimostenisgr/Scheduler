@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace Scheduler
 {
     public partial class Mon : UserControl
@@ -45,6 +46,7 @@ namespace Scheduler
                     }
                 }
             }
+            refreshMon.PerformClick();
         }
 
         private void Mon_Load(object sender, EventArgs e)
@@ -75,11 +77,27 @@ namespace Scheduler
                     }
                 }
             }
+            editMon.Image = Scheduler.Properties.Resources.icons8_edit_32;
+            dataGridView1.Enabled = false;
         }
 
         private void MonCal_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void editMon_Click(object sender, EventArgs e)
+        {
+            if (!dataGridView1.Enabled)
+            {
+                dataGridView1.Enabled = true;
+                editMon.Image = Scheduler.Properties.Resources.icons8_edit_32_blue;
+            }
+            else
+            {
+                dataGridView1.Enabled = false;
+                editMon.Image = Scheduler.Properties.Resources.icons8_edit_32;
+            }
         }
     }
 }

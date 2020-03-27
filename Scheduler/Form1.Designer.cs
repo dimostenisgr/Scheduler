@@ -211,6 +211,7 @@
             this.TimePanel.Name = "TimePanel";
             this.TimePanel.Size = new System.Drawing.Size(1382, 650);
             this.TimePanel.TabIndex = 6;
+            this.TimePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TimePanel_Paint);
             // 
             // time1
             // 

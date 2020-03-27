@@ -16,5 +16,10 @@ namespace Scheduler
         {
             InitializeComponent();
         }
+
+        private void refreshWed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

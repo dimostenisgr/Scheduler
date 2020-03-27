@@ -16,5 +16,10 @@ namespace Scheduler
         {
             InitializeComponent();
         }
+
+        private void refreshThu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
