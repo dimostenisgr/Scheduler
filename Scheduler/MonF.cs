@@ -23,7 +23,7 @@ namespace Scheduler
         private void saveMon_Click(object sender, EventArgs e)
         {
             DataGridView dgv = dataGridView1;
-            string file = "C:/Users/dimosthenisgr/Documents/GitHub/Scheduler/Scheduler/mygrid.bin";
+            string file = "../../bins/mygrid.bin";
             using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
             {
                 bw.Write(dgv.Columns.Count);
@@ -58,7 +58,7 @@ namespace Scheduler
         {
             DataGridView dgv = dataGridView1;
             dgv.Rows.Clear();
-            string file = "C:/Users/dimosthenisgr/Documents/GitHub/Scheduler/Scheduler/mygrid.bin";
+            string file = "../../bins/mygrid.bin";
 
             using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
             {
