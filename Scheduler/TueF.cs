@@ -17,8 +17,63 @@ namespace Scheduler
         public Tue()
         {
             InitializeComponent();
-            DataGridView dgv = dataGridView2;
-            if (!File.Exists(file)) using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
+            //open file
+            fileOC(dataGridView2, 0);
+        }
+
+        private void editTue_Click(object sender, EventArgs e)
+        {
+            if (!dataGridView2.Enabled)
+            {
+                dataGridView2.Enabled = true;
+                editTue.Image = Scheduler.Properties.Resources.icons8_edit_32_blue;
+            }
+            else
+            {
+                dataGridView2.Enabled = false;
+                editTue.Image = Scheduler.Properties.Resources.icons8_edit_32;
+            }
+        }
+
+        private void refreshTue_Click(object sender, EventArgs e)
+        {
+            fileOC(dataGridView2, 0);
+            editTue.Image = Scheduler.Properties.Resources.icons8_edit_32;
+            dataGridView2.Enabled = false;
+        }
+
+        private void saveTue_Click(object sender, EventArgs e)
+        {
+            fileOC(dataGridView2, 1);
+            refreshTue.PerformClick();
+        }
+        //method for openning/creating files
+        public void fileOC(DataGridView dgv,int oc)
+        {
+            if ((oc == 0)&&File.Exists(file))//oc 0=open 1=create/write
+            {
+                dgv.Rows.Clear();
+                using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
+                {
+                    int n = bw.ReadInt32();
+                    int m = bw.ReadInt32();
+                    for (int i = 0; i < m; ++i)
+                    {
+                        dgv.Rows.Add();
+                        for (int j = 0; j < n; ++j)
+                        {
+                            if (bw.ReadBoolean())
+                            {
+                                dgv.Rows[i].Cells[j].Value = bw.ReadString();
+                            }
+                            else bw.ReadBoolean();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
                 {
                     bw.Write(dgv.Columns.Count);
                     bw.Write(dgv.Rows.Count);
@@ -40,76 +95,9 @@ namespace Scheduler
                         }
                     }
                 }
-            refreshTue.PerformClick();
-        }
-
-        private void editTue_Click(object sender, EventArgs e)
-        {
-            if (!dataGridView2.Enabled)
-            {
-                dataGridView2.Enabled = true;
-                editTue.Image = Scheduler.Properties.Resources.icons8_edit_32_blue;
-            }
-            else
-            {
-                dataGridView2.Enabled = false;
-                editTue.Image = Scheduler.Properties.Resources.icons8_edit_32;
             }
         }
 
-        private void refreshTue_Click(object sender, EventArgs e)
-        {
-            DataGridView dgv = dataGridView2;
-            dgv.Rows.Clear();
-                using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
-                {
-                    int n = bw.ReadInt32();
-                    int m = bw.ReadInt32();
-                    for (int i = 0; i < m; ++i)
-                    {
-                        dgv.Rows.Add();
-                        for (int j = 0; j < n; ++j)
-                        {
-                            if (bw.ReadBoolean())
-                            {
-                                dgv.Rows[i].Cells[j].Value = bw.ReadString();
-                            }
-                            else bw.ReadBoolean();
-                        }
-                    }
-                }
-            
-            editTue.Image = Scheduler.Properties.Resources.icons8_edit_32;
-            dataGridView2.Enabled = false;
-        }
-
-        private void saveTue_Click(object sender, EventArgs e)
-        {
-            DataGridView dgv = dataGridView2;
-            using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
-            {
-                bw.Write(dgv.Columns.Count);
-                bw.Write(dgv.Rows.Count);
-                foreach (DataGridViewRow dgvR in dgv.Rows)
-                {
-                    for (int j = 0; j < dgv.Columns.Count; ++j)
-                    {
-                        object val = dgvR.Cells[j].Value;
-                        if (val == null)
-                        {
-                            bw.Write(false);
-                            bw.Write(false);
-                        }
-                        else
-                        {
-                            bw.Write(true);
-                            bw.Write(val.ToString());
-                        }
-                    }
-                }
-            }
-            refreshTue.PerformClick();
-        }
     }
-    
+
 }

@@ -18,81 +18,18 @@ namespace Scheduler
         public Mon()
         {
             InitializeComponent();
-            DataGridView dgv = dataGridView1;
-            if (!File.Exists(file)) using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
-                {
-                    bw.Write(dgv.Columns.Count);
-                    bw.Write(dgv.Rows.Count);
-                    foreach (DataGridViewRow dgvR in dgv.Rows)
-                    {
-                        for (int j = 0; j < dgv.Columns.Count; ++j)
-                        {
-                            object val = dgvR.Cells[j].Value;
-                            if (val == null)
-                            {
-                                bw.Write(false);
-                                bw.Write(false);
-                            }
-                            else
-                            {
-                                bw.Write(true);
-                                bw.Write(val.ToString());
-                            }
-                        }
-                    }
-                }
-            refreshMon.PerformClick();
+            fileOC(dataGridView1, 0);
         }
 
         private void saveMon_Click(object sender, EventArgs e)
         {
-            DataGridView dgv = dataGridView1;
-            using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
-            {
-                bw.Write(dgv.Columns.Count);
-                bw.Write(dgv.Rows.Count);
-                foreach (DataGridViewRow dgvR in dgv.Rows)
-                {
-                    for (int j = 0; j < dgv.Columns.Count; ++j)
-                    {
-                        object val = dgvR.Cells[j].Value;
-                        if (val == null)
-                        {
-                            bw.Write(false);
-                            bw.Write(false);
-                        }
-                        else
-                        {
-                            bw.Write(true);
-                            bw.Write(val.ToString());
-                        }
-                    }
-                }
-            }
+            fileOC(dataGridView1, 1);
             refreshMon.PerformClick();
         }
         
         private void refresh_Click(object sender, EventArgs e)
         {
-            DataGridView dgv = dataGridView1;
-            dgv.Rows.Clear();
-            using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
-            {
-                int n = bw.ReadInt32();
-                int m = bw.ReadInt32();
-                for (int i = 0; i < m; ++i)
-                {
-                    dgv.Rows.Add();
-                    for (int j = 0; j < n; ++j)
-                    {
-                        if (bw.ReadBoolean())
-                        {
-                            dgv.Rows[i].Cells[j].Value = bw.ReadString();
-                        }
-                        else bw.ReadBoolean();
-                    }
-                }
-            }
+            fileOC(dataGridView1, 0);
             editMon.Image = Scheduler.Properties.Resources.icons8_edit_32;
             dataGridView1.Enabled = false;
         }
@@ -115,5 +52,55 @@ namespace Scheduler
                 editMon.Image = Scheduler.Properties.Resources.icons8_edit_32;
             }
         }
+        public void fileOC(DataGridView dgv, int oc)
+        {
+            if ((oc == 0) && File.Exists(file))//oc 0=open 1=create/write
+            {
+                dgv.Rows.Clear();
+                using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
+                {
+                    int n = bw.ReadInt32();
+                    int m = bw.ReadInt32();
+                    for (int i = 0; i < m; ++i)
+                    {
+                        dgv.Rows.Add();
+                        for (int j = 0; j < n; ++j)
+                        {
+                            if (bw.ReadBoolean())
+                            {
+                                dgv.Rows[i].Cells[j].Value = bw.ReadString();
+                            }
+                            else bw.ReadBoolean();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
+                {
+                    bw.Write(dgv.Columns.Count);
+                    bw.Write(dgv.Rows.Count);
+                    foreach (DataGridViewRow dgvR in dgv.Rows)
+                    {
+                        for (int j = 0; j < dgv.Columns.Count; ++j)
+                        {
+                            object val = dgvR.Cells[j].Value;
+                            if (val == null)
+                            {
+                                bw.Write(false);
+                                bw.Write(false);
+                            }
+                            else
+                            {
+                                bw.Write(true);
+                                bw.Write(val.ToString());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
