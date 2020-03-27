@@ -200,7 +200,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Mon";
             this.Size = new System.Drawing.Size(1382, 650);
-            this.Load += new System.EventHandler(this.Mon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

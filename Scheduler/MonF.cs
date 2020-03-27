@@ -14,16 +14,39 @@ namespace Scheduler
 {
     public partial class Mon : UserControl
     {
+        string file = "../../bins/monbin.bin";
         public Mon()
         {
             InitializeComponent();
+            DataGridView dgv = dataGridView1;
+            if (!File.Exists(file)) using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
+                {
+                    bw.Write(dgv.Columns.Count);
+                    bw.Write(dgv.Rows.Count);
+                    foreach (DataGridViewRow dgvR in dgv.Rows)
+                    {
+                        for (int j = 0; j < dgv.Columns.Count; ++j)
+                        {
+                            object val = dgvR.Cells[j].Value;
+                            if (val == null)
+                            {
+                                bw.Write(false);
+                                bw.Write(false);
+                            }
+                            else
+                            {
+                                bw.Write(true);
+                                bw.Write(val.ToString());
+                            }
+                        }
+                    }
+                }
             refreshMon.PerformClick();
         }
 
         private void saveMon_Click(object sender, EventArgs e)
         {
             DataGridView dgv = dataGridView1;
-            string file = "../../bins/mygrid.bin";
             using (BinaryWriter bw = new BinaryWriter(File.Open(file, FileMode.Create)))
             {
                 bw.Write(dgv.Columns.Count);
@@ -48,18 +71,11 @@ namespace Scheduler
             }
             refreshMon.PerformClick();
         }
-
-        private void Mon_Load(object sender, EventArgs e)
-        {
-            
-        }
         
         private void refresh_Click(object sender, EventArgs e)
         {
             DataGridView dgv = dataGridView1;
             dgv.Rows.Clear();
-            string file = "../../bins/mygrid.bin";
-
             using (BinaryReader bw = new BinaryReader(File.Open(file, FileMode.Open)))
             {
                 int n = bw.ReadInt32();
