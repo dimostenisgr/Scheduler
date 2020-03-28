@@ -14,7 +14,7 @@ namespace Scheduler
 {
     public partial class Mon : UserControl
     {
-        string file = "../../bins/monbin.bin";
+        string file = "./bins/monbin.bin";
         public Mon()
         {
             InitializeComponent();

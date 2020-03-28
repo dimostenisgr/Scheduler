@@ -17,7 +17,6 @@ C:\Users\dimosthenisgr\source\repos\Scheduler\Scheduler\obj\Debug\Scheduler.Wed.
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\bin\Debug\Scheduler.exe.config
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\bin\Debug\Scheduler.exe
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\bin\Debug\Scheduler.pdb
-C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.csprojAssemblyReference.cache
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.Form1.resources
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.Fri.resources
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.Mon.resources
@@ -30,3 +29,4 @@ C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.csproj.GenerateResource.cache
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.exe
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.pdb
+C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.csprojAssemblyReference.cache

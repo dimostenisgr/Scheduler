@@ -13,7 +13,7 @@ namespace Scheduler
 {
     public partial class Wed : UserControl
     {
-        string file = "../../bins/wedbin.bin";
+        string file = "./bins/wedbin.bin";
         public Wed()
         {
             InitializeComponent();
