@@ -13,7 +13,7 @@ namespace Scheduler
 {
     public partial class Tue : UserControl
     {
-        string file = "../../bins/tuebin.bin";
+        string file = "./bins/tuebin.bin";
         public Tue()
         {
             InitializeComponent();

@@ -13,7 +13,9 @@ namespace Scheduler
 {
     public partial class Fri : UserControl
     {
-        string file = "../../bins/fribin.bin";
+
+        string file = "./bins/fribin.bin";
+
         public Fri()
         {
             InitializeComponent();

@@ -13,7 +13,9 @@ namespace Scheduler
 {
     public partial class Sut : UserControl
     {
-        string file = "../../bins/sutbin.bin";
+
+        string file = "./bins/sutbin.bin";
+
         public Sut()
         {
             InitializeComponent();

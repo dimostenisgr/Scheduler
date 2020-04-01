@@ -13,7 +13,9 @@ namespace Scheduler
 {
     public partial class Sun : UserControl
     {
-        string file = "../../bins/sunbin.bin";
+
+        string file = "./bins/sunbin.bin";
+
         public Sun()
         {
             InitializeComponent();
