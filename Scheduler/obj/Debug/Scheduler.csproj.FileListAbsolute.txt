@@ -30,3 +30,8 @@ C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.exe
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.pdb
 C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.csprojAssemblyReference.cache
+C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\bin\Debug\Scheduler.exe.manifest
+C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\bin\Debug\Scheduler.application
+C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.TrustInfo.xml
+C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.exe.manifest
+C:\Users\dimosthenisgr\Documents\GitHub\Scheduler\Scheduler\obj\Debug\Scheduler.application
